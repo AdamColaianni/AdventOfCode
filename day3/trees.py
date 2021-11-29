@@ -4,8 +4,7 @@ def pass_across_and_down(a, d=1):
         input = [line.strip() for line in f.readlines()]
     for i, v in enumerate(input):
         if i % d == 0:
-            while position >= 31: position -= 31
             if v[position] == ".": empty += 1
             elif v[position] == "#": tree += 1
-            position += a
+            position = (position + a) % 31
     return tree
